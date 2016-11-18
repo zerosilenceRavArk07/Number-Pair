@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<windows.h>
 
-const int Size = 20;
+const int Size = 5;
 
 int getValue(char MSG[40]);
 char getChar(char MSG[40]);
@@ -9,65 +9,59 @@ int getLength(int x);
 
 int main()
 {
-    int i,j,k,l; //loops
-    int x, a, result, counter; //reassign
-    int test_case[Size], split_case[Size]; // arrays
-    int size_a, num_test, test_value;//holder
-    char ans;
+  int user, digits, Size_digits = 0, test_value, counter = 0;;
+  int user_array[Size], digit_array[Size];
+  int i, j, k, l, m;
+  char ans;
 
 do{
-    system("cls");
-    num_test = getValue("Input number of test cases: ");
+  system("cls");
+  user = getValue("Input number of test cases: ");
 
-    if(num_test < 1 || num_test > 20)
+  if(user < 0 || user > 20)
+  {
+    printf("Invalid number of test case\n");
+  }
+  else
+  {
+    for(i = 0; i < user; i++)
     {
-        printf("Invalid test cases [1-20]\n");
+      user_array[i] = getValue("Input test case/s: ");
     }
-    else
-    {
-      for(i = 0; i < num_test; i++)
+      for (i = 0; i < user; i++)
       {
-        test_case[i] = getValue("Input test case/s: ");
-        if(test_case[i] <= 10)
-        {
-          printf("Invalid test cases 2 digit!\n");
-          break;
-        }
-      }
-      for (i = 0; i < num_test; i++)
-      {
-        x = test_case[i];
         counter = 0;
-        for(j = x, test_value = j; j > 0; j--)
+        test_value = user_array[i];
+        Size_digits = getLength(user_array[i]);
+        for(j = test_value; j > 0; j--)
         {
-          a = j;
-          size_a = getLength(a);
-          for (k = 0; k < size_a; k++)
+          for(k = 0, l = j; k < Size_digits; k++)
           {
-            split_case[k] = a % 10;
-            a /= 10;
-            if((j + split_case[k])==test_value)
+            digit_array[k] = l % 10;
+            l /= 10;
+          }
+          for(m = 0; m < Size_digits; m++)
+          {
+            if(j + digit_array[m] == test_value)
             {
               counter++;
-              result = split_case[k] + j;
-              printf("%d + %d = %d\n", j, split_case[k], result);
+              printf("%d + %d = %d\n", j, digit_array[m], test_value);
             }
           }
         }
         if(counter > 0)
         {
-          printf("---------------\n%d pairs for %d \n---------------\n", counter, x);
+            printf("%d pairs for %d \n", counter, test_value);
         }
         else
         {
-          printf("---------------\nNo pairs for %d \n---------------\n", x);
+            printf("No pairs for %d \n", test_value);
         }
       }
     }
-    ans = getChar("Try Again?: [y/n]");
-    }while(ans == 'y');
+    ans = getChar("Try again? [y/n]");
+  }while(ans == 'y');
 }
-
 
 int getValue(char MSG[40])
 {
@@ -87,11 +81,11 @@ char getChar(char MSG[40])
 
 int getLength(int x)
 {
-  int count = 0;
-  while(x != 0)
-  {
-    x/=10;
-    count++;
-  }
-  return count;
+        int count = 0;
+        while(x != 0)
+        {
+                x/=10;
+                count++;
+        }
+        return count;
 }
