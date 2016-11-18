@@ -81,11 +81,11 @@ char getChar(char MSG[40])
 
 int getLength(int x)
 {
-        int count = 0;
-        while(x != 0)
-        {
-                x/=10;
-                count++;
-        }
-        return count;
+  int count = 0;
+  while(x != 0)
+  {
+          x/=10;
+          count++;
+  }
+  return count;
 }
