@@ -1,2 +1,2 @@
 #include<stdio.h>
-hoi cleavon
+//cleavon dito mo sulat
