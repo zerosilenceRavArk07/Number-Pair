@@ -1,7 +1,14 @@
 #include<stdio.h>
+
+int getValue(char MSG[40]);
+
 int main()
 {
-  int sean, cleavon, mark;
-  pogi+=cleavon;
-  return gwapo;
-  
+  int
+
+}
+
+int getValue(char MSG[40])
+{
+
+}
