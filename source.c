@@ -1,2 +1,7 @@
 #include<stdio.h>
-//cleavon dito mo sulat
+int main()
+{
+  int sean, cleavon, mark;
+  pogi+=cleavon;
+  return gwapo;
+  
